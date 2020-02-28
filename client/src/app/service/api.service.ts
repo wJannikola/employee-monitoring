@@ -20,6 +20,23 @@ export class ApiService {
       )
   }
 
+  updateEmployee(id, data): Observable<any> {
+    let url = `${this.baseUri}/employees/${id}`;
+    return this.http.patch(url, data, { headers: this.headers }).pipe(
+      catchError(this.errorMgmt)
+    )
+  }
+
+  getEmployee(id): Observable<any> {
+    let url = `${this.baseUri}/employees/${id}`;
+    return this.http.get(url, {headers: this.headers}).pipe(
+      map((res: Response) => {
+        return res || {}
+      }),
+      catchError(this.errorMgmt)
+    )
+  }
+
   getEmployees() {
     return this.http.get(`${this.baseUri}/employees`);
   }
