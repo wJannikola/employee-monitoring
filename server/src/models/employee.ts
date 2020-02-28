@@ -1,9 +1,15 @@
 import mongoose = require('mongoose');
 
 const employeeSchema = new mongoose.Schema({
-    name: {
+    firstName: {
         type: String,
-        trim: true
+        trim: true,
+        required: true
+    },
+    lastName: {
+        type: String,
+        trim: true,
+        required: true
     }
 }, {
     timestamps: true
