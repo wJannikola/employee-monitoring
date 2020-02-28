@@ -2,6 +2,12 @@
     <!-- No data message -->
     <p *ngIf="Employee.length <= 0" class="no-data text-center">There is no employee added yet!</p>
 
+    <div class="row">
+        <div class="col-12 text-right">
+            <a class="btn btn-primary mb-3" routerLink="/create-employee">Add Employee</a>
+        </div>
+    </div>
+
     <!-- Employee list -->
     <table class="table table-bordered" *ngIf="Employee.length > 0">
         <thead class="table-success">
