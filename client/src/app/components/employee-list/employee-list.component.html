@@ -24,10 +24,13 @@
                 <td>{{employee.firstName}}</td>
                 <td>{{employee.lastName}}</td>
                 <td class="text-center edit-block">
-                    <span class="edit" [routerLink]="['/edit-employee/', employee._id]">
-                      <button type="button" class="btn btn-success btn-sm">Edit</button>
+                    <span class="edit mr-3" [routerLink]="['/edit-employee/', employee._id]">
+                        <button type="button" class="btn btn-success btn-sm">Edit</button>
                     </span>
-                  </td>
+                    <span class="delete" (click)="removeEmployee(employee, i)">
+                        <button type="button" class="btn btn-danger btn-sm">Delete</button>
+                    </span>
+                </td>
             </tr>
         </tbody>
     </table>

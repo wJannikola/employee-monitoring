@@ -41,6 +41,13 @@ export class ApiService {
     return this.http.get(`${this.baseUri}/employees`);
   }
 
+  deleteEmployee(id): Observable<any> {
+    let url = `${this.baseUri}/employees/${id}`;
+    return this.http.delete(url, { headers: this.headers }).pipe(
+      catchError(this.errorMgmt)
+    )
+  }
+
   errorMgmt(error: HttpErrorResponse) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

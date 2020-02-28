@@ -61,4 +61,13 @@ employeeRoutes.get('/employees', async (req: express.Request, res: express.Respo
     }
 })
 
+employeeRoutes.delete('/employees/:id', async (req: express.Request, res: express.Response) => {
+    try{
+        await Employee.findByIdAndDelete(req.params.id);
+        res.status(201).send(req.body);
+    }catch(e) {
+        res.status(400).send(e)
+    }
+})
+
 export { employeeRoutes };

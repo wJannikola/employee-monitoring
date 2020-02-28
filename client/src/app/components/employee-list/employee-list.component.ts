@@ -21,4 +21,13 @@ export class EmployeeListComponent implements OnInit {
     })    
   }
 
+  removeEmployee(employee, index) {
+    if(window.confirm('Are you sure?')) {
+        this.apiService.deleteEmployee(employee._id).subscribe((data) => {
+          this.Employee.splice(index, 1);
+        }
+      )    
+    }
+  }
+
 }
