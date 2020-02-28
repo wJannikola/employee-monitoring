@@ -14,4 +14,13 @@ userRoutes.post('/users', async (req: express.Request, res: express.Response) =>
     }
 })
 
+userRoutes.get('/users', async (req: express.Request, res: express.Response) => {
+    try{
+        const users = await User.find({});
+        res.send(users);
+    }catch(e) {
+        res.status(400).send(e)
+    }
+})
+
 export { userRoutes };
