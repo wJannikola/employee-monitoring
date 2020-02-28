@@ -5,6 +5,7 @@ import cors from "cors";
 import bodyParser from "body-parser";
 import * as http from "http";
 import { userRoutes } from './routers/user';
+import { employeeRoutes } from './routers/employee';
 
 mongoose.connect('mongodb://127.0.0.1:27017/employees', {
     useNewUrlParser: true,
@@ -36,6 +37,7 @@ export class Server {
         this.app.use(cors());
         this.app.use(bodyParser());
         this.app.use(userRoutes);
+        this.app.use(employeeRoutes);
     }
 
     private createServer(): void {
