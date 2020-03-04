@@ -6,9 +6,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EmployeeCreateComponent } from './modules/employee/components/employee-create/employee-create.component';
-import { EmployeeEditComponent } from './modules/employee/components/employee-edit/employee-edit.component';
-import { EmployeeListComponent } from './modules/employee/components/employee-list/employee-list.component';
+import { EmployeeCreateComponent } from './modules/employee/pages/employee-create/employee-create.component';
+import { EmployeeEditComponent } from './modules/employee/pages/employee-edit/employee-edit.component';
+import { EmployeeListComponent } from './modules/employee/pages/employee-list/employee-list.component';
 import { ApiService } from './service/api.service';
 
 const routes: Routes = [
