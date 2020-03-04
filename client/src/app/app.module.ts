@@ -11,13 +11,6 @@ import { EmployeeEditComponent } from './modules/employee/pages/employee-edit/em
 import { EmployeeListComponent } from './modules/employee/pages/employee-list/employee-list.component';
 import { ApiService } from './service/api.service';
 
-const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'create-employee' },
-  { path: 'create-employee', component: EmployeeCreateComponent },
-  { path: 'edit-employee/:id', component: EmployeeEditComponent },
-  { path: 'employees-list', component: EmployeeListComponent }
-];
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +21,6 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(routes),
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule
