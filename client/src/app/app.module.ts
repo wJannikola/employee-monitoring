@@ -10,20 +10,22 @@ import { EmployeeCreateComponent } from './modules/employee/pages/employee-creat
 import { EmployeeEditComponent } from './modules/employee/pages/employee-edit/employee-edit.component';
 import { EmployeeListComponent } from './modules/employee/pages/employee-list/employee-list.component';
 import { ApiService } from './service/api.service';
+import { EmployeeModule } from './modules/employee/employee.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeCreateComponent,
-    EmployeeEditComponent,
-    EmployeeListComponent
+    // EmployeeCreateComponent,
+    // EmployeeEditComponent,
+    // EmployeeListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    // EmployeeModule
   ],
   exports: [RouterModule],
   providers: [ApiService],

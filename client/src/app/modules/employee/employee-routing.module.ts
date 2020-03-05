@@ -4,18 +4,9 @@ import { EmployeeEditComponent } from './pages/employee-edit/employee-edit.compo
 import { EmployeeListComponent } from './pages/employee-list/employee-list.component';
 
 const routes: Routes = [
-    {
-        path: 'create',
-        component: EmployeeCreateComponent
-    },
-    {
-        path: 'edit',
-        component: EmployeeEditComponent
-    },
-    {
-        path: 'list',
-        component: EmployeeListComponent
-    }
+    { path: 'create', component: EmployeeCreateComponent },
+    { path: 'edit', component: EmployeeEditComponent },
+    { path: 'list', component: EmployeeListComponent }
 ];
 
-export const ContactRoutes = RouterModule.forChild(routes);
+export const EmployeeRoutes = RouterModule.forChild(routes);

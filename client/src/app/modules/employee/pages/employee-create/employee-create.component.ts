@@ -51,7 +51,7 @@ export class EmployeeCreateComponent implements OnInit {
       this.apiService.createEmployee(this.employeeForm.value).subscribe(
         (res) => {
           console.log('Employee successfully created!')
-          this.ngZone.run(() => this.router.navigateByUrl('/employees-list'))
+          this.ngZone.run(() => this.router.navigateByUrl('/employees/list'))
         }, (error) => {
           console.log(error);
         });
