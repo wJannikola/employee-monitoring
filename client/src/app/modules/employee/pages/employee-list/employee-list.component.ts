@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from './../../../../service/api.service';
+
+import { EmployeeService } from './../../../../shared/service/employee/employee.service';
+
 
 @Component({
   selector: 'app-employee-list',
@@ -9,26 +11,28 @@ import { ApiService } from './../../../../service/api.service';
 export class EmployeeListComponent implements OnInit {
   Employee: any = [];
 
-  constructor(private apiService: ApiService) {
+  constructor(
+    private employeeService: EmployeeService
+  ) {
     this.readEmployee();
   }
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
     console.log('employees init');
   }
 
-  readEmployee(){
-    this.apiService.getEmployees().subscribe((data) => {
-     this.Employee = data;
-    })    
+  readEmployee() {
+    this.employeeService.getEmployees().subscribe((data) => {
+      this.Employee = data;
+    })
   }
 
   removeEmployee(employee, index) {
-    if(window.confirm('Are you sure?')) {
-        this.apiService.deleteEmployee(employee._id).subscribe((data) => {
-          this.Employee.splice(index, 1);
-        }
-      )    
+    if (window.confirm('Are you sure?')) {
+      this.employeeService.deleteEmployee(employee._id).subscribe((data) => {
+        this.Employee.splice(index, 1);
+      }
+      )
     }
   }
 

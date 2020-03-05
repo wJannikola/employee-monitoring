@@ -1,8 +1,9 @@
-import {Employee} from './../../../../shared/models/employee';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
-import { ApiService } from './../../../../service/api.service';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+
+import {Employee} from './../../../../shared/models/employee';
+import { EmployeeService } from './../../../../shared/service/employee/employee.service';
 
 @Component({
   selector: 'app-employee-edit',
@@ -17,7 +18,7 @@ export class EmployeeEditComponent implements OnInit {
     constructor(
     public fb: FormBuilder,
     private actRoute: ActivatedRoute,
-    private apiService: ApiService,
+    private employeeService: EmployeeService,
     private router: Router
   ) {}
 
@@ -42,7 +43,7 @@ export class EmployeeEditComponent implements OnInit {
   }
 
   getEmployee(id) {
-    this.apiService.getEmployee(id).subscribe(data => {
+    this.employeeService.getEmployee(id).subscribe(data => {
       console.log(data);
       this.editForm.setValue({
         firstName: data[0]['firstName'],
@@ -65,7 +66,7 @@ export class EmployeeEditComponent implements OnInit {
     } else {
       if (window.confirm('Are you sure?')) {
         let id = this.actRoute.snapshot.paramMap.get('id');
-        this.apiService.updateEmployee(id, this.editForm.value)
+        this.employeeService.updateEmployee(id, this.editForm.value)
           .subscribe(res => {
             this.router.navigateByUrl('/employees/list');
             console.log('Content updated successfully!')

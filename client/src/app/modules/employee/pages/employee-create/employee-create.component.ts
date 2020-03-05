@@ -1,7 +1,8 @@
 import { Router } from '@angular/router';
-import { ApiService } from './../../../../service/api.service';
 import { Component, OnInit, NgZone } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+
+import { EmployeeService } from './../../../../shared/service/employee/employee.service';
 
 @Component({
   selector: 'app-employee-create',
@@ -16,7 +17,7 @@ export class EmployeeCreateComponent implements OnInit {
     public fb: FormBuilder,
     private router: Router,
     private ngZone: NgZone,
-    private apiService: ApiService
+    private employeeService: EmployeeService,
   ) {
     this.mainForm();
   }
@@ -48,7 +49,7 @@ export class EmployeeCreateComponent implements OnInit {
     if (!this.employeeForm.valid) {
       return false;
     } else {
-      this.apiService.createEmployee(this.employeeForm.value).subscribe(
+      this.employeeService.createEmployee(this.employeeForm.value).subscribe(
         (res) => {
           console.log('Employee successfully created!')
           this.ngZone.run(() => this.router.navigateByUrl('/employees/list'))
