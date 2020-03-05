@@ -10,6 +10,7 @@ export class ArrivalListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log('arrivals init');
   }
 
 }
