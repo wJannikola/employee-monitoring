@@ -7,7 +7,6 @@ import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ApiService } from './service/api.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +21,6 @@ import { ApiService } from './service/api.service';
     CommonModule,
   ],
   exports: [RouterModule],
-  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
