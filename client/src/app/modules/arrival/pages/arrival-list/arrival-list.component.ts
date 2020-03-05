@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from './../../../../service/api.service';
+
+import { ArrivalService } from './../../../../shared/service/arrival/arrival.service';
 
 @Component({
   selector: 'app-arrival-list',
@@ -9,7 +10,9 @@ import { ApiService } from './../../../../service/api.service';
 export class ArrivalListComponent implements OnInit {
   Arrival: any = [];
 
-  constructor(private apiService: ApiService) { 
+  constructor(
+    private arrivalService: ArrivalService
+    ) { 
     this.readArrival();
   }
 
@@ -18,14 +21,14 @@ export class ArrivalListComponent implements OnInit {
   }
 
   readArrival(){
-    this.apiService.getArrivals().subscribe((data) => {
+    this.arrivalService.getArrivals().subscribe((data) => {
      this.Arrival = data;
     })    
   }
 
   removeArrival(arrival, index) {
     if(window.confirm('Are you sure?')) {
-        this.apiService.deleteArrival(arrival._id).subscribe((data) => {
+        this.arrivalService.deleteArrival(arrival._id).subscribe((data) => {
           this.Arrival.splice(index, 1);
         }
       )    
