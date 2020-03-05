@@ -1,6 +1,6 @@
 <div class="container">
     <!-- No data message -->
-    <p *ngIf="Employee.length <= 0" class="no-data text-center">There is no employee added yet!</p>
+    <p  class="no-data text-center">There is no employee added yet!</p>
 
     <div class="row">
         <div class="col-12 text-right">
@@ -24,9 +24,12 @@
                 <td>{{employee.firstName}}</td>
                 <td>{{employee.lastName}}</td>
                 <td class="text-center edit-block">
-                    <span class="edit mr-3" [routerLink]="['/edit-employee/', employee._id]">
-                        <button type="button" class="btn btn-success btn-sm">Edit</button>
-                    </span>
+                    <a [routerLink]="['/employees/edit/', employee._id]">
+                        <span class="edit mr-3" >
+                            <button type="button" class="btn btn-success btn-sm">Edit</button>
+                        </span>
+                    </a>
+                 
                     <span class="delete" (click)="removeEmployee(employee, i)">
                         <button type="button" class="btn btn-danger btn-sm">Delete</button>
                     </span>

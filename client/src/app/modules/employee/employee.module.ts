@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';  
+import { CommonModule } from '@angular/common';
 
 import { EmployeeRoutes } from './employee-routing.module';
 import { EmployeeCreateComponent } from './pages/employee-create/employee-create.component';
@@ -12,17 +12,17 @@ import { EmployeeListComponent } from './pages/employee-list/employee-list.compo
 
 @NgModule({
   declarations: [
-      EmployeeCreateComponent,
-      EmployeeEditComponent,
-      EmployeeListComponent
-    ],
+    EmployeeCreateComponent,
+    EmployeeEditComponent,
+    EmployeeListComponent
+  ],
   imports: [
+    CommonModule,
     EmployeeRoutes,
     ReactiveFormsModule,
     // BrowserModule,
     HttpClientModule,
     FormsModule,
-    CommonModule
   ]
 })
 export class EmployeeModule { }
