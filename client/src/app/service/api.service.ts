@@ -48,6 +48,42 @@ export class ApiService {
     )
   }
 
+  createArrival(data): Observable<any> {
+    let url = `${this.baseUri}/arrivals`;
+    return this.http.post(url, data)
+      .pipe(
+        catchError(this.errorMgmt)
+      )
+  }
+
+  updateArrival(id, data): Observable<any> {
+    let url = `${this.baseUri}/arrivals/${id}`;
+    return this.http.patch(url, data, { headers: this.headers }).pipe(
+      catchError(this.errorMgmt)
+    )
+  }
+
+  getArrival(id): Observable<any> {
+    let url = `${this.baseUri}/arrivals/${id}`;
+    return this.http.get(url, {headers: this.headers}).pipe(
+      map((res: Response) => {
+        return res || {}
+      }),
+      catchError(this.errorMgmt)
+    )
+  }
+
+  getArrivals() {
+    return this.http.get(`${this.baseUri}/arrivals`);
+  }
+
+  deleteArrival(id): Observable<any> {
+    let url = `${this.baseUri}/arrivals/${id}`;
+    return this.http.delete(url, { headers: this.headers }).pipe(
+      catchError(this.errorMgmt)
+    )
+  }
+
   errorMgmt(error: HttpErrorResponse) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {
